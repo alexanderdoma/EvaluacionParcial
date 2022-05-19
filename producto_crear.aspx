@@ -13,7 +13,7 @@
 
         <label for="txtPrecio">Precio:</label>
         <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>
-
+        
         <label for="txtStock">Stock</label>
         <asp:TextBox ID="txtSctock" runat="server"></asp:TextBox>
 

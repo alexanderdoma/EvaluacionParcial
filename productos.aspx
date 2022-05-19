@@ -7,6 +7,14 @@
     <hr />
     <a href="producto_crear.aspx" class="boton">Nuevo Producto</a>
     <h3>GridView</h3>
+    <asp:DropDownList ID="ddlCategoria" runat="server">
+        <asp:ListItem Text="--Seleccione--" Value=""></asp:ListItem>
+    </asp:DropDownList>
+    <asp:DropDownList ID="ddlMarca" runat="server">
+        <asp:ListItem Text="--Seleccione--" Value=""></asp:ListItem>
+    </asp:DropDownList>
+    <asp:Button CssClass="boton" ID="btnFiltrar" runat="server" 
+            Text="Filtrar" OnClick="Filtrar" />
     <asp:GridView ID="gvDatos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
@@ -34,7 +42,6 @@
                     <h3><%#Eval("Nombre") %></h3>
                     <p><%# Eval("Marca") %></p>
                     <p><%# Eval("PrecioProducto") %></p>
-
                     <a href="producto.aspx?id=<%#Eval("Id") %>">Editar</a>
                 </div>
             </ItemTemplate>

@@ -11,7 +11,7 @@ namespace Tienda
     public partial class producto : System.Web.UI.Page
     {
         string idProducto = string.Empty;
-        string strConexion = "Server=(local); Database=Tienda; Integrated Security=true";
+        string strConexion = "Server=DESKTOP-AFFVEDI\\SQLEXPRESS; Database=Tienda; Integrated Security=true";
         protected void Page_Load(object sender, EventArgs e)
         {
             idProducto = Request.QueryString["id"];

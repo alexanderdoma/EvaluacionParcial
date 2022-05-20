@@ -44,8 +44,8 @@
                     <h3><%#Eval("Nombre") %></h3>
                     <p><%# Eval("Marca") %></p>
                     <p><%# Eval("PrecioProducto") %></p>
-                    <a href="producto.aspx?id=<%#Eval("Id") %>">Editar</a>
-                    
+                    <img alt="imagen de producto" src="data:image/jpg;base64,<%# Convert.ToBase64String((byte[])DataBinder.Eval(Container.DataItem, "Imagen"))%>" />
+                    <a href="producto.aspx?id=<%# Eval("Id") %>">Editar</a>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

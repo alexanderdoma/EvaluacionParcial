@@ -21,7 +21,7 @@ namespace Tienda
             using(var conexion = new SqlConnection(strConexion))
             {
                 using(var command = new SqlCommand("Select IdProducto AS Id, Nombre, Marca, " +
-                    "Precio AS PrecioProducto " +
+                    "Precio AS PrecioProducto, Foto as Imagen " +
                     "From producto", conexion))
                 {
                     var ds = new DataSet();
@@ -30,10 +30,9 @@ namespace Tienda
 
                     gvDatos.DataSource = ds;
                     gvDatos.DataBind();
-
+                    
                     rpDatos.DataSource = ds;
                     rpDatos.DataBind();
-                    
                 }
             }
         }

@@ -70,6 +70,7 @@
     <Content Include="Assets\css\app.css" />
     <Content Include="Assets\css\normalize.css" />
     <Content Include="Assets\images\barras.svg" />
+    <Content Include="Assets\images\default.png" />
     <Content Include="Assets\images\fondo_header.jpg" />
     <Content Include="Assets\images\logo.png" />
     <Content Include="Assets\images\productos\generico.png" />

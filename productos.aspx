@@ -8,13 +8,15 @@
     <a href="producto_crear.aspx" class="boton">Nuevo Producto</a>
     <h3>GridView</h3>
     <asp:DropDownList ID="ddlCategoria" runat="server">
-        <asp:ListItem Text="--Seleccione--" Value=""></asp:ListItem>
+        <asp:ListItem Text="--Seleccione una marca--" Value=""></asp:ListItem>
     </asp:DropDownList>
+    <asp:Button CssClass="boton" ID="btnFiltrarCategoria" runat="server" 
+            Text="Filtrar por categoría" OnClick="FiltrarCategoria" />
     <asp:DropDownList ID="ddlMarca" runat="server">
-        <asp:ListItem Text="--Seleccione--" Value=""></asp:ListItem>
+        <asp:ListItem Text="--Seleccione una categoría--" Value=""></asp:ListItem>
     </asp:DropDownList>
     <asp:Button CssClass="boton" ID="btnFiltrar" runat="server" 
-            Text="Filtrar" OnClick="Filtrar" />
+            Text="Filtrar por marcas" OnClick="FiltrarMarca" />
     <asp:GridView ID="gvDatos" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
@@ -43,6 +45,7 @@
                     <p><%# Eval("Marca") %></p>
                     <p><%# Eval("PrecioProducto") %></p>
                     <a href="producto.aspx?id=<%#Eval("Id") %>">Editar</a>
+                    
                 </div>
             </ItemTemplate>
         </asp:Repeater>

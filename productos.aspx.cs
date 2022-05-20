@@ -85,17 +85,16 @@ namespace Tienda
             }
         }
 
-        protected void Filtrar(object sender, EventArgs e)
+        protected void FiltrarMarca(object sender, EventArgs e)
         {
             string marca = ddlMarca.SelectedItem + "";
-            int categoria = ddlCategoria.SelectedIndex;
 
             using (var conexion = new SqlConnection(strConexion))
             {
                 using (var command = new SqlCommand("Select IdProducto AS Id, Nombre, Marca, " +
                     "Precio AS PrecioProducto " +
                     "From producto " +
-                    "WHERE Marca like '%"+marca+"%' or idCategoria=" + categoria, conexion))
+                    "WHERE Marca like '%"+ marca + "'", conexion))
                 {
                     var ds = new DataSet();
                     var da = new SqlDataAdapter(command);
@@ -109,6 +108,38 @@ namespace Tienda
 
                 }
             }
+        }
+
+        protected void FiltrarCategoria(object sender, EventArgs e)
+        {
+
+            if (ddlCategoria.SelectedIndex == 0)
+            {
+                cargarDatos();
+            }
+            else
+            {
+                int categoria = ddlCategoria.SelectedIndex;
+                using (var conexion = new SqlConnection(strConexion))
+                {
+                    using (var command = new SqlCommand("Select IdProducto AS Id, Nombre, Marca, " +
+                        "Precio AS PrecioProducto " +
+                        "From producto " +
+                        "WHERE idCategoria =" + categoria, conexion))
+                    {
+                        var ds = new DataSet();
+                        var da = new SqlDataAdapter(command);
+                        da.Fill(ds);
+
+                        gvDatos.DataSource = ds;
+                        gvDatos.DataBind();
+
+                        rpDatos.DataSource = ds;
+                        rpDatos.DataBind();
+
+                    }
+                }
+            }   
         }
     }
 }
